@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    Social Issues in America
+  </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script>
+  <script src="js/highcharts.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+
+
+  <link rel="stylesheet" href="styles/page_style.css">
+
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Oxygen" rel="stylesheet">
+
+</head>
+
+  <body>
+
+<h1>
+  American attitudes about prominent social issues
+</h1>
+
+<div id="container"></div>
+
+<div id="container2"></div>
+
+<p id="leftSource">
+  <strong>Source: </strong>The Pew Research Center, <a href='http://www.pewresearch.org/data-trend/domestic-issues/attitudes-on-gay-marriage/'>Gay Marriage Data Trends</a>
+</p>
+
+<p id='rightSource'>
+  <strong>Source: </strong>The Pew Research Center, <a href='http://www.pewresearch.org/data-trend/domestic-issues/gun-control/'>Gun Control Data Trends</a>
+</p>
+</p>
+
+<article>
+
+<p>
+  With the 2016 election approaching, <a href='http://www.gallup.com/poll/191174/americans-financial-worries-edge-2016.aspx'>Americans</a> <a href='http://www.gallup.com/poll/190475/americans-concern-crime-climbs-year-high.aspx'>are</a> <a href='http://www.businessinsider.com/americans-are-getting-worried-about-the-new-housing-crisis-2016-8'>worried</a>. But what issues are they most worried about?
+</p>
+
+<p>
+  According to Google, which measures American interest in issues by the number of searches done on particular subjects, the top-five most-searched issues are:
+</p>
+
+  <ol>
+    <li>Immigration</li>
+    <li>Same-sex marriage</li>
+    <li>Education</li>
+    <li>Gun control</li>
+    <li>Taxes</li>
+  </ol>
+
+  <p>
+    Of those five, two (same-sex marriage and gun control) are considered social issues. And according to the <a href='http://www.pewresearch.org/'>Pew Research Center</a>, Americans' attitudes about these two issues have shifted wildly over the past two decades.
+  </p>
+
+  <p>
+    Same-sex marriage, as illustrated by the chart on the left, was decidedly unfavorable to a majority of Americans back in 1996. But in 2011, the majority flipped and has stayed that way since.
+  </p>
+
+  <p>
+    Meanwhile, while a strong majority suppoerted gun control in the 1990s, the percentage of people in favor of gun control has gradually decreased since then. The majority flipped for the first time in 2014, with 52 percent of Americans saying they preferred protecting gun rights to gun control.
+</p>
+
+</article>
+
+<script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'American attitudes about same-sex marriage'
+        },
+        subtitle: {
+            text: 'Source: The Pew Research Center'
+        },
+        xAxis: {
+            categories: ['1996', '2001', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+        },
+        yAxis: {
+            title: {
+                text: 'Percentage of Americans'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
+            }
+        },
+        series: [{
+            name: 'Against same-sex marriage',
+            data: [65, 57, 58, 60, 53, 55, 54, 51, 54, 48, 45, 43, 43, 40, 39]
+        }, {
+            name: 'For same-sex marriage',
+            data: [27, 35, 33, 31, 36, 33, 37, 39, 37, 42, 46, 48, 50, 52, 57]
+        }]
+    });
+});
+</script>
+
+<script>
+$(function () {
+    $('#container2').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Attitudes about guns in the U.S. (1993-2015)'
+        },
+        xAxis: {
+            categories: ['1993', '1999', '2000', '2003', '2004', '2007', '2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Percentage for and against'
+            }
+        },
+        tooltip: {
+            pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                stacking: 'percent'
+            }
+        },
+        series: [{
+            name: 'Protect right to guns',
+            data: [34, 33, 38, 42, 37, 42, 37, 45, 46, 47, 42, 48, 52, 47]
+        }, {
+            name: 'Support gun control',
+            data: [57, 62, 57, 54, 58, 55, 58, 49, 50, 49, 49, 50, 46, 50]
+        }]
+    });
+});
+</script>
+
+  </body>
+
+
+
+</head>
+
+
+
+</html>
